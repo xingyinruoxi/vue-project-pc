@@ -12,13 +12,9 @@ export const formatTime = date => {
     const minute = date.getMinutes()
     const second = date.getSeconds()
 
-    return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+    return [year, month, day].map(fixedZero).join('/') + ' ' + [hour, minute, second].map(fixedZero).join(':')
 }
 
-const formatNumber = n => {
-    n = n.toString()
-    return n[1] ? n : '0' + n
-}
 
 /**
  * 用来获取和设置localStorage存储
