@@ -1,8 +1,6 @@
 <template>
   <div class="home">
-   
-    <HelloWorld msg="欢迎光临，我们的网站"/>
-    <NewItem />
+    <HelloWorld msg="欢迎光临，我们的网站！"/>
   </div>
 </template>
 
@@ -14,8 +12,7 @@ import HelloWorld from '@/components/HelloWorld'
 export default {
   name: 'home',
   components: {
-    HelloWorld,
-    // NewItem
+    HelloWorld
   }
 }
 </script>

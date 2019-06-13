@@ -1,0 +1,236 @@
+// =============================================
+// @des:            zless
+// @author:         zhoulin
+// @time:           2017-09-11
+// @lastTime
+// @version          1.0
+// =============================================
+
+//  reset
+.reset(){
+
+}
+//去除a和label的虚线
+.remove_dotted(){
+  a,label {blr:~'expression(this.onFocus=this.blur())'}
+  a,label {outline:none;}
+}
+//全局定位
+.pos (r){
+  position: relative;
+}
+.pos (a){
+  position: absolute;
+}
+.pos (f){
+  position: fixed;
+}
+
+//定位居中
+.pos-box-cc(@w:600px,@h:360px,@pos:absolute){
+  width: @w;
+  height: @h;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -@w / 2;
+  margin-top: -@h / 2;
+}
+//布局
+.bc(){
+  margin-left: auto;
+  margin-right: auto;
+}
+.bc-d(@w:500px){
+  width: @w;
+  .bc();
+}
+.wh(@w){
+  width: @w;
+  height: @w;
+}
+.w-be-h(@w){
+  width: @w;
+  height: @w;
+}
+.z-index(@index:1){
+  z-index: @index;
+}
+//高度100%
+.h100(){
+  height: 100%;
+}
+//文字垂直居中
+.txt-ver(@h){
+  height: @h;
+  line-height: @h;
+}
+// 同.txt-ver
+.l-h(@h)
+{
+  height: @h;
+  line-height: @h;
+}
+
+//font size
+.font(@p: 12px){
+  font-size: @p;
+}
+
+//background
+.bg(@url)
+{
+  background: url(@url) 0 0 repeat;
+}
+.bg-m(@url,@x:0,@y:0,@repeat:no-repeat)
+{
+  background: url(@url) @x @y @repeat;
+}
+.bgi(@url)
+{
+  background-image: url(@url);
+}
+.bgp(@x:0,@y:0){
+  background-position: @x @y;
+}
+.bgr-r(){
+  background-repeat: repeat;
+}
+.bgr-x(){
+  background-repeat: repeat-x;
+}
+.bgr-y(){
+  background-repeat: repeat-y;
+}
+.bgr-no(){
+  background-repeat: no-repeat;
+}
+.bga-fix(){
+  background-attachment: fixed;
+}
+
+//清除浮动
+.clearfix(){
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+//特殊需求
+.min-width(@width){
+  min-width: @width;
+  _width:@width;
+}
+.max-width(@width,@id){
+  max-width: @width;
+  _width:~'expression(document.getElementById("@{id}").offsetHeight>parseInt("@{width}")?"@{width}": "auto")';
+  overflow:hidden;
+}
+.min-height(@height){
+  min-height: @height;
+  _height:@height;
+}
+.max-height(@height,@id){
+  max-height: @height;
+  _height:~'expression(document.getElementById("@{id}").offsetHeight>parseInt("@{height}")?"@{height}": "auto")';
+  overflow:hidden;
+}
+
+//透明度
+.opa(@opacity: 80) {
+  opacity: @opacity / 100;
+  filter: ~"alpha(opacity=@{opacity})";
+}
+.rgba(@red, @green, @blue, @alpha:1){
+  @filtercolor:`(_f = function(d){ var v = (parseInt(d)|0).toString(16);return v.length<2 ? "0"+v : v;},
+                                        '#'+_f(@{alpha}*255) + _f(@{red}) + _f(@{green})+ _f(@{blue}))`;
+
+  background-color: ~'rgba(@{red},@{green},@{blue},@{alpha})';
+  -ms-filter:~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{filtercolor}',endColorstr='@{filtercolor}')";
+  filter:~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{filtercolor}',endColorstr='@{filtercolor}')";
+}
+
+//文字省略号
+// @substract单位为%
+.ellipsis-basic(){
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  .font-fa();
+}
+
+.ellipsis(@substract:0) {
+  .ellipsis-basic();
+  width:100% - @substract;
+}
+
+
+// =============================================
+// 创建栅格布局
+// 默认950宽 24列 每列30px 间距10px
+// html结构
+// <div class="vl-grid"> <div class="row"> <div class="span span6"></div> <div class="span span6"></div> <div class="span span6"></div> <div class="span span6"></div> </div> <div class="row"> <div class="span span24"></div> </div> </div>
+// =============================================
+//栅格化
+
+.makeGrid(@colnum: 24, @colwidth: 30, @margin: 10px){
+
+  //列数
+  @gridColumns:             @colnum;
+  //每一列宽度
+  @gridColumnWidth:         @colwidth;
+  //间距
+  @gridGutterWidth:         @margin;
+  //行宽度 = (列数 * 每一列的宽度 ) + (margin * (列数-1));
+  @gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
+
+  //每一列的宽度 间距
+  .gridX (@gridColumnWidth, @gridGutterWidth) {
+    .spanX (@index) when (@index > 0) {
+      .span@{index} { .span(@index); }
+      .spanX(@index - 1);
+    }
+    .spanX (0) {}
+
+    .offsetX (@index) when (@index > 0) {
+      .offset@{index} { .offset(@index); }
+      .offsetX(@index - 1);
+    }
+    .offsetX (0) {}
+
+    .offset (@columns) {
+      margin-left: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns + 1));
+    }
+
+    .span (@columns) {
+      width: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns - 1));
+    }
+
+    .row {
+      margin-left: @gridGutterWidth * -1;
+      .clearfix();
+    }
+
+    .span{
+      float: left;
+      min-height: 1px; // prevent collapsing columns
+      //background-color: #ccc; //this is a test - busy
+      margin-left: @gridGutterWidth;
+    }
+
+    // generate .spanX and .offsetX
+    .spanX (@gridColumns);
+    .offsetX (@gridColumns);
+
+  }
+  .vl-grid{
+    .gridX(@gridColumnWidth, @gridGutterWidth);
+  }
+
+}
