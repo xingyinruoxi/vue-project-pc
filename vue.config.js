@@ -4,7 +4,7 @@ module.exports = {
         port: 3000, // 端口号
         proxy: {
             '/api': {
-                target: 'http://www.havalfl.com',
+                target: 'http://www.****.com',
                 ws: true,
                 changeOrigin: true,
                 pathRewrite: {
