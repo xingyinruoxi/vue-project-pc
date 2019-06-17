@@ -1,5 +1,5 @@
 // set function parseTime,formatTime to filter
-export { parseTime, formatTime }
+export { formatTime }
 from '@/utils'
 
 function pluralize(time, label) {

@@ -36,14 +36,14 @@
 │  |  ├─ getters.js    获取state中的状态，仅单向获取数据，不做任何修改
 │  |  └─ index.js
 │  ├─ utils
-│  |  ├─ crypt.js
-│  |  ├─ filters.js
-│  |  ├─ index.js
+│  |  ├─ crypt.js      加密/解密
+│  |  ├─ filters.js    过滤
+│  |  ├─ index.js       默认封装库
 │  |  ├─ request.js     处理公共请求，响应数据
 │  |  └─ token.js       token处理
 │  ├─ views             前端页面文件
-│  |  ├─ About
-│  |  └─ Home
+│  |  ├─ AboutPage
+│  |  └─ HomePage
 │  |     ├─componetns   页面子组件
 │  |     └─ index.vue   页面入口组件  
 │  └─ main.js 
