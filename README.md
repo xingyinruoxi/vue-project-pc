@@ -60,12 +60,17 @@
 
 ### 三、css要求
 
-1、css用less写，.vue以局部less来写<style lang="less" scoped></style>只作用于当前vue文件。
-2、公共使用的less要单独放assets下less文件夹里。
-3、使用 scoped关键字，约束样式生效的范围。
-4、避免使用标签选择器（效率低、损耗性能）。
-5、非特殊情况下，禁止使用 ID 选择器定义样式。有 JS 逻辑的情况除外。
-6、LESS 属性书写顺序：先决定定位宽高显示大小，再做局部细节修饰！推荐顺序：定位属性(或显示属性，display)->宽高属性->边距属性(margin, padding)->字体，背景，颜色等，修饰属性的定义。
+● css用less写，.vue以局部less来写<style lang="less" scoped></style>只作用于当前vue文件。
+
+● 公共使用的less要单独放assets下less文件夹里。
+
+● 使用 scoped关键字，约束样式生效的范围。
+
+● 避免使用标签选择器（效率低、损耗性能）。
+
+● 非特殊情况下，禁止使用 ID 选择器定义样式。有 JS 逻辑的情况除外。
+
+● LESS 属性书写顺序：先决定定位宽高显示大小，再做局部细节修饰！推荐顺序：定位属性(或显示属性，display)->宽高属性->边距属性(margin, padding)->字体，背景，颜色等，修饰属性的定义。
 
 
 ### 四、文件名要求
@@ -73,16 +78,7 @@
 ● 文件名采用短横线分割命名
 ● 页面文件夹命名主要以功能模块代表命名，并采用大写开头、驼峰法
 
-### 五、js\
-1. IDEA 或者 Eclipse安装lombok插件
-
-2. 新建MySQL（版本5.7.x）数据库，导入[SQL](https://github.com/wuyouzhuguli/FEBS-Vue/blob/master/sql/febs.sql)文件
-
-3. 导入[backend项目](https://github.com/wuyouzhuguli/FEBS-Vue/tree/master/backend)
-
-4. 修改数据库配置，redis配置，等待Maven下载依赖
-
-5. 启动backend项目
+### 五、js
 ● 组件名称：必须以大写字母开头驼峰法命名。
 ● Data必须是一个函数。
 ● 调试信息 console.log() debugger使用完及时删除。
