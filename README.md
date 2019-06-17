@@ -19,20 +19,20 @@
 
 #### 二、框架目录结构
 ```
-├─ node_modules       项目依赖模块 
-├─ public             纯静态资源，不会被wabpack构建。
-│  ├─ favicon.ico     网页图标
-│  └─ index.html      html模板，入口页面
-├─ src                项目源码目录
-│  ├─ api             存放项目的网络模块，接口
+├─ node_modules        项目依赖模块 
+├─ public              纯静态资源，不会被wabpack构建。
+│  ├─ favicon.ico      网页图标
+│  └─ index.html       html模板，入口页面
+├─ src                 项目源码目录
+│  ├─ api              存放项目的网络模块，接口
 │  |   ├─ index.js
 │  |   └─ user.js
-│  ├─ assets         资源目录，资源会被wabpack构建
-│  |  ├─ img         图片存放目录
-│  |  ├─ less        全局less
-│  |  └─ libs        第三方库引用文件
-│  ├─ components     公共组件目录
-│  ├─ lang           国际化
+│  ├─ assets           资源目录，资源会被wabpack构建
+│  |  ├─ img           图片存放目录
+│  |  ├─ less          全局less
+│  |  └─ libs          第三方库引用文件
+│  ├─ components       公共组件目录
+│  ├─ lang             国际化
 │  |  ├─ locales
 │  |  └─ index.js
 │  ├─ router           路由配置文件夹
@@ -45,22 +45,22 @@
 │  ├─ utils
 │  |  ├─ crypt.js      加密/解密
 │  |  ├─ filters.js    过滤
-│  |  ├─ index.js       默认封装库
-│  |  ├─ request.js     处理公共请求，响应数据
-│  |  └─ token.js       token处理
-│  ├─ views             前端页面文件
+│  |  ├─ index.js      默认封装库
+│  |  ├─ request.js    处理公共请求，响应数据
+│  |  └─ token.js      token处理
+│  ├─ views            前端页面文件
 │  |  ├─ AboutPage
 │  |  └─ HomePage
-│  |     ├─componetns   页面子组件
-│  |     └─ index.vue   页面入口组件  
+│  |     ├─componetns  页面子组件
+│  |     └─ index.vue  页面入口组件  
 │  └─ main.js 
-│  ├─ App.vue           根组件
-│  └─ main.js           入口js文件
-│─ .gitignore           git的忽略配置文件
-│─ babel.config.js      babel配置文件
-│─ package.js           npm包配置文件，依赖包信息
-│─ README.md            项目说明
-│─ vue.config.js        修改webpack配置文件
+│  ├─ App.vue          根组件
+│  └─ main.js          入口js文件
+│─ .gitignore          git的忽略配置文件
+│─ babel.config.js     babel配置文件
+│─ package.js          npm包配置文件，依赖包信息
+│─ README.md           项目说明
+│─ vue.config.js       修改webpack配置文件
 └─ yarn.lock
 
 ```
@@ -81,6 +81,7 @@
 
 
 ### 四、文件名要求
+
 1、有意义的名词、简短、具有可读性。
 
 2、文件名采用短横线分割命名。
@@ -141,7 +142,7 @@
 
 &emsp;4、 多特性，分行写，提高可读性。即一个标签内有多个属性，属性分行写。
 
-&emsp;5、 自定义标签：使用自闭标签的写法。例如：，如果自定义标签中间需要传入slot，则写开始标签和结束标签，结束标签必须加/。
+&emsp;5、 自定义标签：使用自闭标签的写法。例如：如果自定义标签中间需要传入slot，则写开始标签和结束标签，结束标签必须加/。
 
 &emsp;6、 组件/实例选项中的空行。便于阅读和代码架构清晰。
 
