@@ -73,7 +73,16 @@
 ● 文件名采用短横线分割命名
 ● 页面文件夹命名主要以功能模块代表命名，并采用大写开头、驼峰法
 
-### 五、js
+### 五、js\
+1. IDEA 或者 Eclipse安装lombok插件
+
+2. 新建MySQL（版本5.7.x）数据库，导入[SQL](https://github.com/wuyouzhuguli/FEBS-Vue/blob/master/sql/febs.sql)文件
+
+3. 导入[backend项目](https://github.com/wuyouzhuguli/FEBS-Vue/tree/master/backend)
+
+4. 修改数据库配置，redis配置，等待Maven下载依赖
+
+5. 启动backend项目
 ● 组件名称：必须以大写字母开头驼峰法命名。
 ● Data必须是一个函数。
 ● 调试信息 console.log() debugger使用完及时删除。
